@@ -8,8 +8,8 @@
       </h2>
       <form id="pay">
         <label>Full Name:</label>
-        <div id="full-name" class="form-field">
-          <input name="fullName" />
+        <div class="form-field">
+          <input id="full-name" name="fullName" />
         </div>
         <div class="horizontal" style="width: 100%">
           <div class="vertical" style="flex: 3">
@@ -19,6 +19,34 @@
           <div class="vertical" style="flex: 1">
             <label>CVV:</label>
             <div id="card-cvv" class="form-field"></div>
+          </div>
+        </div>
+        <div class="horizontal" style="width: 100%">
+          <div class="vertical" style="flex: 2">
+            <label>Card Month:</label>
+            <div class="form-field">
+              <input
+                id="card-month"
+                name="cardMonth"
+                type="number"
+                min="1"
+                max="12"
+                step="1"
+              />
+            </div>
+          </div>
+          <div class="vertical" style="flex: 3">
+            <label>Card Year:</label>
+            <div class="form-field">
+              <input
+                id="card-year"
+                name="cardYear"
+                type="number"
+                min="1900"
+                max="2099"
+                step="1"
+              />
+            </div>
           </div>
         </div>
         <div class="vertical">
@@ -53,7 +81,7 @@
 const config = useRuntimeConfig();
 const props = defineProps({
   opened: Boolean,
-  amount: Number,
+  amount: String,
 });
 const emit = defineEmits(["closeModal"]);
 const submitPayment = async () => {

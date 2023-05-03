@@ -32,6 +32,11 @@ const getToken = async (amount) => {
   document.getElementById("card-token").value = "";
   document.getElementById("alert_message").innerHTML = "Verifying...";
 
+  await PayNowSdk().addCard({
+    month: document.getElementById("card-month").value,
+    year: document.getElementById("card-year").value,
+  });
+
   const cardToken = PayNowSdk().getCardToken();
 
   if (cardToken == null) {
